@@ -1,4 +1,5 @@
-import { motion as Motion } from "framer-motion";
+// eslint-disable-next-line
+import { motion } from "framer-motion";
 import {
   FaWhatsapp,
   FaPhone,
@@ -237,7 +238,7 @@ const NavigationButtons = () => {
   return (
     <div
       style={{
-        position: "center",
+        position: "relative",
         padding: "1.5rem",
         background: "#000000",
         overflow: "hidden",
@@ -251,7 +252,7 @@ const NavigationButtons = () => {
     >
       {/* Floating icons */}
       {floatingIcons.map((item, index) => (
-        <Motion.div
+        <motion.div
           key={`floating-icon-${index}`}
           initial={item.initial}
           animate={item.animate}
@@ -263,10 +264,10 @@ const NavigationButtons = () => {
           }}
         >
           {item.icon}
-        </Motion.div>
+        </motion.div>
       ))}
 
-      <Motion.h2
+      <motion.h2
         style={{
           textAlign: "center",
           color: "yellow",
@@ -281,7 +282,7 @@ const NavigationButtons = () => {
         transition={{ duration: 0.5 }}
       >
         Connect With Us
-      </Motion.h2>
+      </motion.h2>
 
       <div
         style={{
@@ -296,26 +297,11 @@ const NavigationButtons = () => {
         }}
       >
         {buttons.map((button, index) => (
-          <Motion.a
+          <motion.a
             key={index}
             href={button.link}
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{
-              scale: 1.02,
-              backgroundColor: button.hoverColor,
-              boxShadow: "0 5px 15px rgba(0,0,0,0.1)",
-              x: 5,
-            }}
-            whileTap={{ scale: 0.98 }}
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{
-              delay: index * 0.1,
-              duration: 0.5,
-              type: "spring",
-              stiffness: 100,
-            }}
             style={{
               backgroundColor: button.color,
               color: button.textColor,
@@ -332,8 +318,23 @@ const NavigationButtons = () => {
               position: "relative",
               overflow: "hidden",
             }}
+            whileHover={{
+              scale: 1.02,
+              backgroundColor: button.hoverColor,
+              boxShadow: "0 5px 15px rgba(0,0,0,0.1)",
+              x: 5,
+            }}
+            whileTap={{ scale: 0.98 }}
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              delay: index * 0.1,
+              duration: 0.5,
+              type: "spring",
+              stiffness: 100,
+            }}
           >
-            <Motion.div
+            <motion.div
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -342,7 +343,7 @@ const NavigationButtons = () => {
               whileHover={{ gap: "1rem" }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <Motion.div
+              <motion.div
                 animate={{
                   rotate: [0, 5, -3, 0],
                   scale: [1, 1.05, 1.03, 1],
@@ -354,22 +355,22 @@ const NavigationButtons = () => {
                 }}
               >
                 {button.icon}
-              </Motion.div>
+              </motion.div>
               <span style={{ fontSize: "1rem", color: button.textColor }}>
                 {button.text}
               </span>
-            </Motion.div>
+            </motion.div>
 
-            <Motion.div
+            <motion.div
               initial={{ x: -5, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: index * 0.1 + 0.3 }}
               whileHover={{ x: 3 }}
             >
               <FaChevronRight color={button.textColor} />
-            </Motion.div>
+            </motion.div>
 
-            <Motion.div
+            <motion.div
               style={{
                 position: "absolute",
                 top: 0,
@@ -384,7 +385,7 @@ const NavigationButtons = () => {
               whileHover={{ x: "100%" }}
               transition={{ duration: 0.6 }}
             />
-          </Motion.a>
+          </motion.a>
         ))}
       </div>
     </div>
