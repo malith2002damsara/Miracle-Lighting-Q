@@ -1,4 +1,3 @@
-// eslint-disable-next-line
 import { motion } from "framer-motion";
 import {
   FaWhatsapp,
@@ -234,7 +233,6 @@ const NavigationButtons = () => {
       textColor: "#6c5ce7",
     },
   ];
-
   return (
     <div
       style={{
